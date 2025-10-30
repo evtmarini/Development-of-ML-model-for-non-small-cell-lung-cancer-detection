@@ -1,4 +1,3 @@
-
 # Import libraries + packages
 from sklearn.svm import SVC
 from sklearn.ensemble import (
@@ -16,7 +15,7 @@ from sklearn.decomposition import PCA
 
 def get_models_and_params():
 
-    # -------------------- EXISTING MODELS -------------------- #
+    # MODELS 
     # Random Forest
     rf = RandomForestClassifier(
         class_weight="balanced",
@@ -61,8 +60,6 @@ def get_models_and_params():
         weights=[1, 1],
         n_jobs=-1
     )
-
-    # -------------------- NEW MODELS -------------------- #
 
     # Logistic Regression (L2)
     log_reg = Pipeline([
@@ -113,7 +110,7 @@ def get_models_and_params():
         ))
     ])
 
-    # -------------------- MODELS DICTIONARY -------------------- #
+    # MODELS DICTIONARY 
     models = {
         "Random Forest": rf,
         "SVM (RBF)": svm,
@@ -126,7 +123,7 @@ def get_models_and_params():
         "MLP (Neural Net)": mlp
     }
 
-    # -------------------- HYPERPARAMETER GRIDS -------------------- #
+    # HYPERPARAMETER GRIDS
     params = {
         "Random Forest": {
             "clf__n_estimators": [300, 600, 1000],
@@ -190,7 +187,7 @@ def get_models_and_params():
 
 if __name__ == "__main__":
     models, params = get_models_and_params()
-    print("✅ Available models:")
+    print("Available models:")
     for name in models.keys():
         print(f" - {name}")
     print("\nParameters for SVM:")
