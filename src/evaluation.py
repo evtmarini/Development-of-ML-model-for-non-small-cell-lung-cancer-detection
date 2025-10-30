@@ -1,5 +1,3 @@
-# Includes Halving Random Search
-
 #Import libraries + packages
 from sklearn.experimental import enable_halving_search_cv
 from sklearn.model_selection import StratifiedKFold, HalvingRandomSearchCV
@@ -23,7 +21,7 @@ def run_experiments(selected_datasets, y, models, param_grids, cv=2):
     os.makedirs("data", exist_ok=True)
 
     for fs_name, X_sel in selected_datasets.items():
-        print(f"\n[INFO] Running Halving Search for feature set: {fs_name} ({X_sel.shape[1]} features)")
+        print(f"\n Running Halving Search for feature set: {fs_name} ({X_sel.shape[1]} features)")
         skf = StratifiedKFold(n_splits=cv, shuffle=True, random_state=42)
 
         # Data balancing with adasyn
