@@ -1,0 +1,28 @@
+FS_method,Classifier,F1_score,Best_params
+SES,Random Forest,0.8207878746698665,"{'clf__n_estimators': 300, 'clf__min_samples_split': 2, 'clf__min_samples_leaf': 1, 'clf__max_features': 'sqrt', 'clf__max_depth': 10}"
+SES,SVM (RBF),0.8000624079116784,"{'clf__pca__n_components': 0.95, 'clf__clf__gamma': 0.0001, 'clf__clf__C': 100}"
+SES,Stacking Ensemble (RF+SVM+GB),0.8217769567372463,"{'clf__final_estimator__n_estimators': 200, 'clf__final_estimator__max_depth': 2, 'clf__final_estimator__learning_rate': 0.03}"
+SES,Soft Voting (RF+SVM),0.4333333333333333,"{'clf__weights': (1, 1)}"
+SES,Logistic Regression,0.6081802794853003,{'clf__clf__C': 100}
+SES,XGBoost,0.8267183474395828,"{'clf__subsample': 0.8, 'clf__n_estimators': 800, 'clf__max_depth': 7, 'clf__learning_rate': 0.03, 'clf__colsample_bytree': 0.7}"
+SES,LightGBM,0.8110125318078971,"{'clf__num_leaves': 63, 'clf__n_estimators': 800, 'clf__max_depth': -1, 'clf__learning_rate': 0.1}"
+SES,kNN,0.5307474982746722,"{'clf__clf__weights': 'uniform', 'clf__clf__n_neighbors': 3}"
+SES,MLP (Neural Net),0.6367442610148559,"{'clf__clf__learning_rate_init': 0.01, 'clf__clf__hidden_layer_sizes': (128, 64), 'clf__clf__activation': 'relu'}"
+RFE-SVM,Random Forest,0.7333135195484412,"{'clf__n_estimators': 600, 'clf__min_samples_split': 5, 'clf__min_samples_leaf': 1, 'clf__max_features': 'log2', 'clf__max_depth': None}"
+RFE-SVM,SVM (RBF),0.7453458246013248,"{'clf__pca__n_components': 0.95, 'clf__clf__gamma': 0.01, 'clf__clf__C': 100}"
+RFE-SVM,Stacking Ensemble (RF+SVM+GB),0.7678924261473634,"{'clf__final_estimator__n_estimators': 100, 'clf__final_estimator__max_depth': 2, 'clf__final_estimator__learning_rate': 0.05}"
+RFE-SVM,Soft Voting (RF+SVM),0.10000000000000002,"{'clf__weights': (1, 1)}"
+RFE-SVM,Logistic Regression,0.5970272014221402,{'clf__clf__C': 0.1}
+RFE-SVM,XGBoost,0.7249174428081194,"{'clf__subsample': 0.8, 'clf__n_estimators': 500, 'clf__max_depth': 7, 'clf__learning_rate': 0.1, 'clf__colsample_bytree': 1.0}"
+RFE-SVM,LightGBM,0.7242445523580692,"{'clf__num_leaves': 63, 'clf__n_estimators': 500, 'clf__max_depth': 5, 'clf__learning_rate': 0.05}"
+RFE-SVM,kNN,0.5917374959136973,"{'clf__clf__weights': 'distance', 'clf__clf__n_neighbors': 3}"
+RFE-SVM,MLP (Neural Net),0.6394163934209701,"{'clf__clf__learning_rate_init': 0.01, 'clf__clf__hidden_layer_sizes': (128, 64), 'clf__clf__activation': 'relu'}"
+LASSO,Random Forest,0.8206335355383741,"{'clf__n_estimators': 300, 'clf__min_samples_split': 5, 'clf__min_samples_leaf': 1, 'clf__max_features': 'sqrt', 'clf__max_depth': 10}"
+LASSO,SVM (RBF),0.7529173360720091,"{'clf__pca__n_components': 0.95, 'clf__clf__gamma': 0.001, 'clf__clf__C': 50}"
+LASSO,Stacking Ensemble (RF+SVM+GB),0.8132466872709309,"{'clf__final_estimator__n_estimators': 300, 'clf__final_estimator__max_depth': 4, 'clf__final_estimator__learning_rate': 0.1}"
+LASSO,Soft Voting (RF+SVM),0.4518518518518518,"{'clf__weights': (2, 1)}"
+LASSO,Logistic Regression,0.6021391856337677,{'clf__clf__C': 10}
+LASSO,XGBoost,0.7853427981607844,"{'clf__subsample': 0.7, 'clf__n_estimators': 500, 'clf__max_depth': 5, 'clf__learning_rate': 0.03, 'clf__colsample_bytree': 0.8}"
+LASSO,LightGBM,0.7712030992034231,"{'clf__num_leaves': 63, 'clf__n_estimators': 800, 'clf__max_depth': -1, 'clf__learning_rate': 0.1}"
+LASSO,kNN,0.42201883084236025,"{'clf__clf__weights': 'distance', 'clf__clf__n_neighbors': 9}"
+LASSO,MLP (Neural Net),0.6576046237306165,"{'clf__clf__learning_rate_init': 0.001, 'clf__clf__hidden_layer_sizes': (128, 64), 'clf__clf__activation': 'tanh'}"
