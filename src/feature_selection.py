@@ -14,7 +14,7 @@ from skrebate import ReliefF
 
 # Filter methods
 def fs_mrmr(X, y, top_k=30):
-    print(f"Running mRMR (fallback) for {top_k} features...")
+    print(f"Running mRMR (fallback) for {top_k} features: ")
     mi = mutual_info_classif(X, y, random_state=42)
     scores = pd.Series(mi, index=X.columns).sort_values(ascending=False)
     selected = []
@@ -29,7 +29,7 @@ def fs_mrmr(X, y, top_k=30):
 
 
 def fs_relieff(X, y, top_k=30):
-    print(f" Running ReliefF for {top_k} features...")
+    print(f" Running ReliefF for {top_k} features:")
     X_scaled = StandardScaler().fit_transform(X)
     relief = ReliefF(n_neighbors=20, n_features_to_select=top_k, n_jobs=-1)
     relief.fit(X_scaled, y)
@@ -39,7 +39,7 @@ def fs_relieff(X, y, top_k=30):
 
 
 def fs_corrsf(X, y, top_k=40, corr_max=0.9):
-    print(f"Running CorrSF (top {top_k})...")
+    print(f"Running CorrSF (top {top_k}):")
     selector = SelectKBest(score_func=f_classif, k="all").fit(X, y)
     scores = pd.Series(selector.scores_, index=X.columns).fillna(0).sort_values(ascending=False)
     selected = []
@@ -54,7 +54,7 @@ def fs_corrsf(X, y, top_k=40, corr_max=0.9):
 
 
 def fs_ses(X, y, alpha=0.1):
-    print("Running SES (Kruskal/Mann–Whitney filtering)...")
+    print("Running SES (Kruskal/Mann–Whitney filtering):")
     from scipy.stats import kruskal, mannwhitneyu
     classes = np.unique(y)
     selected = []
@@ -69,7 +69,7 @@ def fs_ses(X, y, alpha=0.1):
 
 # WRAPPER METHODS
 def fs_boruta(X, y):
-    print("Running Boruta feature selection...")
+    print("Running Boruta feature selection:")
     rf = RandomForestClassifier(
         n_jobs=-1,
         class_weight="balanced",
@@ -89,7 +89,7 @@ def fs_boruta(X, y):
 
 
 def fs_rfe_svm(X, y, n_features=30):
-    print(f" Running RFE with linear SVM (target {n_features})...")
+    print(f" Running RFE with linear SVM (target {n_features}):")
     estimator = SVC(kernel="linear", random_state=42)
     rfe = RFE(estimator=estimator, n_features_to_select=min(n_features, X.shape[1]), step=0.1)
     rfe.fit(StandardScaler().fit_transform(X), y)
@@ -99,7 +99,7 @@ def fs_rfe_svm(X, y, n_features=30):
 
 
 def fs_genetic(X, y, top_k=20, generations=8, pop_size=25):
-    print(f"Running Genetic Algorithm for {generations} generations...")
+    print(f"Running Genetic Algorithm for {generations} generations:")
     rng = np.random.default_rng(42)
     n_features = X.shape[1]
     population = rng.integers(0, 2, size=(pop_size, n_features))
